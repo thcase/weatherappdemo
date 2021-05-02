@@ -45,8 +45,8 @@ describe("Current Weather Component should:", () => {
     })
     expect(container.textContent).not.toBe('')
     const currentWeatherElement = document.getElementById('Current-Weather')
-    expect(currentWeatherElement.childNodes.length).toBe(3)
-    expect(currentWeatherElement.childNodes[1].childNodes.length).toBe(1)
-    expect(currentWeatherElement.childNodes[2].childNodes.length).toBe(5)
+    expect(currentWeatherElement.childNodes.length).toBe(4)
+    expect(currentWeatherElement.childNodes[1].childNodes.length).toBe(8)
+    expect(currentWeatherElement.childNodes[2].childNodes.length).toBe(1)
   });
 });

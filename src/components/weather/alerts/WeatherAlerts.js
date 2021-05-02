@@ -20,7 +20,7 @@ const WeatherAlerts = ({ weather }) => {
   const offset = weather.timezone_offset
   // Format alert for display
   const displayAlert = (alert, index) => {
-    return <div key={index} className={'card'}>
+    return <div key={index} className={'card weather-alerts'}>
       <div className={'card-header'}>
         <label>From:</label> {alert.sender_name}
       </div>
