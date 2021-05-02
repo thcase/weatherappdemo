@@ -30,7 +30,7 @@
     "start": "react-scripts start",
     "server": "node server.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --testPathIgnorePatterns=src/services",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
