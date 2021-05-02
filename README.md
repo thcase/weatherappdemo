@@ -16,8 +16,7 @@ The initial demo application will provide the following features:
 
 * Provide Search Functionality to be able to enter a City, or an Address, to find the weather for the entered location
 * Display the current weather for the location
-* Display the weather forecasts for the location (minute forecast for 1 hour, hourly forecast for 48 hours, and daily forecast for next 7 days)
-* Display the historical weather for the location (past 5 days)
+* Display the weather forecasts for the location (hourly forecast for 48 hours, and daily forecast for next 7 days)
 
 ## Prerequisites
 In order to get started, you will need the following installed:
@@ -33,7 +32,7 @@ In order to get started, you will need the following installed:
 * Optionally: Cloud Host (such as Digital Ocean) -- If you want to demo the application beyond your desktop
     
 ## Project Setup
-To setup the project, perform the following steps:
+To set up the project, perform the following steps:
 
 1. Open a Terminal (CommandLine Prompt, or Powershell Window)
 2. Change directory to the parent folder where you want to host your project (e.g., ~/Projects or %UserProfile%/Projects)
@@ -41,6 +40,7 @@ To setup the project, perform the following steps:
 4. Setup OpenWeatherMap account and create an API Key (see: https://openweathermap.org/appid)
 5. Setup Google Maps API Key (see: https://developers.google.com/maps/documentation/embed/get-api-key)
 6. Create a `.env` file in the project root to store the api keys (see: https://create-react-app.dev/docs/adding-custom-environment-variables/)
+7. Run `npm install` or `yarn install` to install the node packages.  You will need to run `npm install` in order to perform docker builds since the build script depends on a package-lock.json file.
 
 ## Available Scripts
 
@@ -86,15 +86,25 @@ To build the application locally, you can run:
 (See [Available Scripts Section](#available-scripts) for information)
 
 ### `docker build .`
-This will build a docker container for the project.  Use the `-t <tagname>` option prior to period to tag the built image.
+This will build a docker container for the project.  Use the `-t <tagname>` option prior to period to tag the built image.  Note:  If you are using Yarn for package manager, in order to run Docker build, you will need to run `npm install` to create the package-lock.json file.  Support for building Docker images with Yarn may be added at future date.  
+
+To run the container, you will need to provide the two API keys as environment variables.  Below is a sample command for building and running locally.
+
+```shell
+docker build . -t weatherappdemo
+docker run -d --env GOOGLE_MAP_API_KEY=<provide key> --env WEATHER_API_KEY=<provide key> -p 80:3000 weatherappdemo
+```
 
 ### CI/CD
-If you have a GitHub account, then you can setup Git Actions to build tha application on pushing to your main branch or merging of a pull request.
+If you have a GitHub account, then you can set up Git Actions to build tha application on pushing to your main branch or merging of a pull request.  You should use the Node.js workflow. See the `.github\workflow` folder for sample github action.
 
 ## Deployment
-If you are deploying to a cloud provider, then follow their deployment directions.  For the working demo application on Digital Ocean, the following guide was followed:
+If you are deploying to a cloud provider, then follow their deployment directions.  Below are some links to aid in deploying the application:
 
-[How to Deploy a Static Website to the Cloud with Digital Ocean App Platform](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform)
+* [How to Deploy a Static Website to the Cloud with Digital Ocean App Platform](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-static-website-to-the-cloud-with-digitalocean-app-platform)
+* [Deploy to Azure](https://docs.microsoft.com/en-us/azure/app-service/quickstart-nodejs?pivots=platform-linux#deploy-to-azure)
+* [Deploy a Node.js App to AWS](https://aws.amazon.com/getting-started/hands-on/deploy-nodejs-web-app/)
+* [Building a Node.js App on App Engine (Google Cloud)](https://cloud.google.com/appengine/docs/standard/nodejs/building-app)
 
 ## Learn More
 
