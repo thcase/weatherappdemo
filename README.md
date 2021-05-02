@@ -1,4 +1,5 @@
 # Weather App Demo
+![Build](https://github.com/thcase/weatherappdemo/actions/workflows/node.js.yml/badge.svg)
 
 ## Introduction
 This application is provides a learning and demonstration environment for using a React Single Page App (SPA).  It will utilize the following technologies:
