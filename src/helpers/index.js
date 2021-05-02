@@ -5,5 +5,6 @@
  * @author thcase <thcase@outlook.com>
  */
 
-export { default as DateHelper } from './DateHelper'
-export { default as TemperatureHelper } from './TemperatureHelper'
+export { default as DateHelper } from "./DateHelper"
+export { default as TemperatureHelper } from "./TemperatureHelper"
+export { default as WindDegreesHelper } from "./WindDegreesHelper"

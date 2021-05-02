@@ -62,3 +62,6 @@ footer a:link, footer a:visited {
   padding: 0;
 }
 
+.card-header {
+  background-color: lightskyblue;
+}

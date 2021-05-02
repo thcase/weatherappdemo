@@ -9,7 +9,7 @@
 import React from "react"
 
 // Local Imports
-import { TemperatureHelper, DateHelper } from "../../../helpers"
+import { TemperatureHelper, DateHelper, WindDegreesHelper } from "../../../helpers"
 
 const HourlyForecast = ({ forecast, offset }) => {
   return (
@@ -23,9 +23,9 @@ const HourlyForecast = ({ forecast, offset }) => {
         <div>{forecast.weather[0].description}</div>
       </div>
       <div className={'card-body'}>
-        <div><label>Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp)} &degF</div>
-        <div><label>Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like)} &degF</div>
-        <div><label>Pressure:</label> {forecast.pressure}</div>
+        <div><label>Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp)} &deg;F</div>
+        <div><label>Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like)} &deg;F</div>
+        <div><label>Pressure:</label> {forecast.pressure} hPa</div>
         <div><label>Humidity:</label> {forecast.humidity}%</div>
         <div><label>Dew Point:</label> {forecast.dew_point}</div>
         <div><label>UV Index:</label> {forecast.uvi}</div>
@@ -33,7 +33,7 @@ const HourlyForecast = ({ forecast, offset }) => {
         <div><label>Visibility:</label> {forecast.visibility}%</div>
         <div><label>Wind Speed:</label> {forecast.wind_speed}</div>
         <div><label>Wind Gust:</label> {forecast.wind_gust}</div>
-        <div><label>Wind Degrees:</label> {forecast.wind_deg}%</div>
+        <div><label>Wind Degrees:</label> {forecast.wind_deg}&deg; {WindDegreesHelper.degreesToDirection(forecast.wind_deg)}</div>
         {(forecast.pop !== undefined) && <div><label>Chance of Precip:</label> {forecast.pop}%</div>}
 
         {(forecast.rain && forecast.rain['1h']) && <div><label>Rain (1h):</label> {forecast.rain['1h']}</div>}

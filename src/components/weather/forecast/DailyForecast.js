@@ -9,7 +9,7 @@
 import React from "react"
 
 // Local Imports
-import { TemperatureHelper, DateHelper } from "../../../helpers"
+import { TemperatureHelper, DateHelper, WindDegreesHelper } from "../../../helpers"
 
 const DailyForecast = ({ forecast, offset }) => {
   return (
@@ -23,25 +23,24 @@ const DailyForecast = ({ forecast, offset }) => {
         <div>{forecast.weather[0].description}</div>
       </div>
       <div className={'card-body card-body-long'}>
-        <div><label>Morn Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.morn)} &degF</div>
-        <div><label>Day Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.day)} &degF</div>
-        <div><label>Eve Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.eve)} &degF</div>
-        <div><label>Night Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.night)} &degF</div>
-        <div><label>Low Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.min)} &degF</div>
-        <div><label>High Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.max)} &degF</div>
-        <div><label>Morn Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.morn)} &degF</div>
-        <div><label>Day Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.day)} &degF</div>
-        <div><label>Eve Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.eve)} &degF</div>
-        <div><label>Night Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.night)} &degF</div>
-        <div><label>Pressure:</label> {forecast.pressure}</div>
+        <div><label>Morn Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.morn)} &deg;F</div>
+        <div><label>Day Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.day)} &deg;F</div>
+        <div><label>Eve Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.eve)} &deg;F</div>
+        <div><label>Night Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.night)} &deg;F</div>
+        <div><label>Low Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.min)} &deg;F</div>
+        <div><label>High Temp:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.temp.max)} &deg;F</div>
+        <div><label>Morn Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.morn)} &deg;F</div>
+        <div><label>Day Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.day)} &deg;F</div>
+        <div><label>Eve Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.eve)} &deg;F</div>
+        <div><label>Night Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.night)} &deg;F</div>
+        <div><label>Pressure:</label> {forecast.pressure} hPa</div>
         <div><label>Humidity:</label> {forecast.humidity}%</div>
         <div><label>Dew Point:</label> {forecast.dew_point}</div>
         <div><label>UV Index:</label> {forecast.uvi}</div>
         <div><label>Cloudiness:</label> {forecast.clouds}%</div>
-        <div><label>Visibility:</label> {forecast.visibility}%</div>
         <div><label>Wind Speed:</label> {forecast.wind_speed}</div>
         <div><label>Wind Gust:</label> {forecast.wind_gust}</div>
-        <div><label>Wind Degrees:</label> {forecast.wind_deg}%</div>
+        <div><label>Wind Degrees:</label> {forecast.wind_deg}&deg; {WindDegreesHelper.degreesToDirection(forecast.wind_deg)}</div>
         {(forecast.pop !== undefined) && <div><label>Chance of Precip:</label> {forecast.pop}%</div>}
         {(forecast.rain !== undefined) && <div><label>Rain:</label> {forecast.rain}</div>}
         {(forecast.snow !== undefined) && <div><label>Snow:</label> {forecast.snow}</div>}

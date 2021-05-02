@@ -24,8 +24,8 @@ const CurrentWeather = ({ address, weather }) => {
         <div>
           <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt={weather.main} title={weather.main}/>
         </div>
+        <div>{weather.description}</div>
       </div>
-      <div className={'card-body'}>{weather.description}</div>
     </div>
   }
   return (

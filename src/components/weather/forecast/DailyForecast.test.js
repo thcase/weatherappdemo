@@ -14,7 +14,7 @@ import DailyForecast from "./DailyForecast"
 import sampleWeatherData from "../../../services/Weather/sample-weather-data"
 
 // Tests
-describe("Daily Forecast Component should: ", () => {
+describe("Daily Forecast Component should:", () => {
   let container = null
 
   beforeEach(() => {
@@ -30,7 +30,6 @@ describe("Daily Forecast Component should: ", () => {
 
   it("Return built component", () => {
     const forecast = sampleWeatherData.daily[0]
-    const index = 0
     const offset = sampleWeatherData.timezone_offset
     act(() => {
       render(<DailyForecast forecast={forecast} index={0} offset={offset}/>, container)
@@ -40,6 +39,6 @@ describe("Daily Forecast Component should: ", () => {
     expect(dailyForeCastComponentElements.length).toBe(1)
     expect(dailyForeCastComponentElements[0].childNodes.length).toBe(2)
     expect(dailyForeCastComponentElements[0].childNodes[0].childNodes.length).toBe(3)
-    expect(dailyForeCastComponentElements[0].childNodes[1].childNodes.length).toBeGreaterThanOrEqual(19)
+    expect(dailyForeCastComponentElements[0].childNodes[1].childNodes.length).toBeGreaterThanOrEqual(18)
   })
 })
