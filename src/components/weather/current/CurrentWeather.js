@@ -9,7 +9,7 @@
 import React from 'react'
 
 // Local Imports
-import { DateHelper, TemperatureHelper } from '../../../helpers'
+import { DateHelper, TemperatureHelper, WindDegreesHelper } from '../../../helpers'
 
 const CurrentWeather = ({ address, weather }) => {
   if (!weather) {
@@ -67,7 +67,7 @@ const CurrentWeather = ({ address, weather }) => {
           <div className={'card-body'}>
             <div><label>Wind Speed:</label> {current.wind_speed}</div>
             <div><label>Wind Gust:</label> {current.wind_gust}%</div>
-            <div><label>Wind Degrees:</label> {current.wind_deg}%</div>
+            <div><label>Wind Degrees:</label> {current.wind_deg}&deg; {WindDegreesHelper.degreesToDirection(current.wind_deg)}</div>
           </div>
         </div>
       </div>
