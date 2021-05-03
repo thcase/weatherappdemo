@@ -39,8 +39,8 @@ const CurrentWeather = ({ address, weather }) => {
       <div className={'card-group'}>
         <div className={'card'}>
           <div className={'card-body'}>
-            <div><label>Temperature:</label> {TemperatureHelper.convertKelvinToFarenheit(current.temp)} &degF</div>
-            <div><label>Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(current.feels_like)} &degF</div>
+            <div><label>Temperature:</label> {TemperatureHelper.convertKelvinToFarenheit(current.temp)} &deg;F</div>
+            <div><label>Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(current.feels_like)} &deg;F</div>
           </div>
         </div>
         <div className={'card'}>
