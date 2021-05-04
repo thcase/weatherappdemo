@@ -53,20 +53,20 @@ const CurrentWeather = ({ address, weather }) => {
           <div className={'card-body'}>
             <div><label>Pressure:</label> {current.pressure} hPa</div>
             <div><label>Humidity:</label> {current.humidity}%</div>
-            <div><label>Dew Point:</label> {current.dew_point}</div>
+            <div><label>Dew Point:</label> {TemperatureHelper.convertKelvinToFarenheit(current.dew_point)} &deg;F</div>
           </div>
         </div>
         <div className={'card'}>
           <div className={'card-body'}>
             <div><label>UV Index:</label> {current.uvi}</div>
             <div><label>Cloudiness:</label> {current.clouds}%</div>
-            <div><label>Visibility:</label> {current.visibility}%</div>
+            <div><label>Visibility:</label> {current.visibility} meters</div>
           </div>
         </div>
         <div className={'card'}>
           <div className={'card-body'}>
             <div><label>Wind Speed:</label> {current.wind_speed}</div>
-            <div><label>Wind Gust:</label> {current.wind_gust}%</div>
+            <div><label>Wind Gust:</label> {current.wind_gust} m/s</div>
             <div><label>Wind Degrees:</label> {current.wind_deg}&deg; {WindDegreesHelper.degreesToDirection(current.wind_deg)}</div>
           </div>
         </div>

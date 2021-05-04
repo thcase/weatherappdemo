@@ -35,11 +35,11 @@ const DailyForecast = ({ forecast, offset }) => {
         <div><label>Night Feels Like:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.feels_like.night)} &deg;F</div>
         <div><label>Pressure:</label> {forecast.pressure} hPa</div>
         <div><label>Humidity:</label> {forecast.humidity}%</div>
-        <div><label>Dew Point:</label> {forecast.dew_point}</div>
+        <div><label>Dew Point:</label> {TemperatureHelper.convertKelvinToFarenheit(forecast.dew_point)} &deg;F</div>
         <div><label>UV Index:</label> {forecast.uvi}</div>
         <div><label>Cloudiness:</label> {forecast.clouds}%</div>
         <div><label>Wind Speed:</label> {forecast.wind_speed}</div>
-        <div><label>Wind Gust:</label> {forecast.wind_gust}</div>
+        <div><label>Wind Gust:</label> {forecast.wind_gust} m/s</div>
         <div><label>Wind Degrees:</label> {forecast.wind_deg}&deg; {WindDegreesHelper.degreesToDirection(forecast.wind_deg)}</div>
         {(forecast.pop !== undefined) && <div><label>Chance of Precip:</label> {forecast.pop}%</div>}
         {(forecast.rain !== undefined) && <div><label>Rain:</label> {forecast.rain}</div>}
